@@ -17,7 +17,7 @@ test('test', async ({ page }) => {
 
 
 
-test('test', async ({ page }) => {
+test('test1', async ({ page }) => {
   await page.goto('http://127.0.0.1:5500/index.html');
   await page.getByRole('link', { name: 'Blog' }).click();
   await expect(page.getByText('iusmod tempor incididunt ut').first()).toBeVisible();
