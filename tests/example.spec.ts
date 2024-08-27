@@ -1,18 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+test('test', async ({ page }) => {
+  await page.goto('http://127.0.0.1:5500/index.html');
+  await page.getByRole('link', { name: 'Home (current)' }).click();
+  await expect(page.getByRole('heading', { name: 'Boxing Center' })).toBeVisible();
+  await page.getByRole('link', { name: 'Contact Us' }).click();
+  await page.getByRole('link', { name: 'Home (current)' }).click();
+  await page.getByRole('link', { name: 'About' }).click();
+  await expect(page.getByRole('heading', { name: 'About Class' })).toBeVisible();
+  await page.getByRole('link', { name: 'Classes' }).click();
+  await expect(page.getByRole('heading', { name: 'Our Classes Videos' })).toBeVisible();
+  await page.getByRole('link', { name: 'Blog' }).click();
+  await expect(page.getByRole('heading', { name: 'Latest Blog' })).toBeVisible();
 });
